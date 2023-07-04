@@ -6,6 +6,8 @@ import { useState } from "react";
 import Form from "@components/Form";
 
 const CreatePrompt = () => {
+  const router = useRouter()
+  const { data: session } = useSession()
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
@@ -23,8 +25,8 @@ const CreatePrompt = () => {
           tag: post.tag,
         })
     })
-    if (response.ok){
-        rounter.push('/')
+    if (res.ok){
+        router.push('/')
       };
     } catch (err) {
         console.log(err)
